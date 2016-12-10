@@ -12,4 +12,5 @@ class LivesController < ApplicationController
     @live = Live.find(params[:id])
   end
 
+
 end

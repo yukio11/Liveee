@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  before_action :authenticate_user!, only: :new
   def index
   end
 
@@ -14,6 +15,6 @@ class ReviewsController < ApplicationController
 
   private
     def create_params
-      params.require(:review).permit(:nickname, :rate, :review).merge(live_id: params[:life_id])
+      params.require(:review).permit(:rate, :review).merge(live_id: params[:life_id], user_id: current_user.id)
     end
 end

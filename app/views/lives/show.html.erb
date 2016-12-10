@@ -51,7 +51,7 @@
   <tbody>
     <% @live.reviews.each do |review| %>
       <tr>
-        <td><%= review.nickname %></td>
+        <td><%= review.user.nickname %></td>
         <td><%= review.rate %></td>
         <td><%= review.review %></td>
       </tr>
