@@ -1,9 +1,22 @@
-<div>
-<%= link_to 'サインアウト', "/users/sign_out", method: :delete %>
-</div>
-<div>
-<a>投稿する</a>
-</div>
+<% if user_signed_in? %>
+  <div>
+    <%= link_to 'サインアウト', "/users/sign_out", method: :delete %>
+  </div>
+  <div>
+    <a href="/users/<%= current_user.id %>">マイページ</a>
+  </div>
+  <div>
+    <a>投稿する</a>
+  </div>
+<% else %>
+  <div>
+    <%= link_to 'ログイン', "/users/sign_in", method: :post %>
+  </div>
+  <div>
+    <%= link_to '新規登録', "/users/sign_up", method: :get %>
+  </div>
+<% end %>
+
 
 
 
