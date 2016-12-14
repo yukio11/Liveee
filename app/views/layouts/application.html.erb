@@ -1,14 +1,127 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <title>Liveee</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+
+  <!-- <link rel="stylesheet" href="Liveee/app/assets/css/bootstrap.css"> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <style type="text/css">
+  body { padding-top: 80px; }
+  @media ( min-width: 768px ) {
+    #banner {
+      min-height: 300px;
+      border-bottom: none;
+    }
+    .bs-docs-section {
+      margin-top: 8em;
+    }
+    .bs-component {
+      position: relative;
+    }
+    .bs-component .modal {
+      position: relative;
+      top: auto;
+      right: auto;
+      left: auto;
+      bottom: auto;
+      z-index: 1;
+      display: block;
+    }
+    .bs-component .modal-dialog {
+      width: 90%;
+    }
+    .bs-component .popover {
+      position: relative;
+      display: inline-block;
+      width: 220px;
+      margin: 20px;
+    }
+    .nav-tabs {
+      margin-bottom: 15px;
+    }
+    .progress {
+      margin-bottom: 10px;
+    }
+  }
+  </style>
+
+  <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
 </head>
+
 <body>
+
+<header>
+  <div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a href="/" class="navbar-brand">Liveee</a>
+        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="navbar-collapse collapse" id="navbar-main">
+        <div class="nav-left">
+          <ul class="nav navbar-nav">
+
+<!--             <li><form class="navbar-form navbar-left" role="search">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search">
+              </div>
+              <button type="submit" class="btn btn-default">Search</button>
+            </form></li>
+ -->
+            <li>
+              <div class="navbar-form navbar-left" role="search">
+                <div class="input-group">
+                  <%= form_tag('/lives/search', method: :get) do %>
+                  <input class="form-control" name="keyword" placeholder="タイトルで検索" type="text" value=""><button class="form-control" title="Search" type="submit"><i class="icon-search"></i></button></input>
+                  <% end %>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <!-- <div class="pull-right"> -->
+          <ul class="nav navbar-nav">
+            <% if user_signed_in? %>
+              <li><%= link_to 'SignOut', "/users/sign_out", method: :delete %></li>
+              <li><a href="/users/<%= current_user.id %>">MyPage</a></li>
+            <% else %>
+              <li><%= link_to 'LogIn', "/users/sign_in", method: :post %></li>
+              <li><%= link_to 'SignUp', "/users/sign_up", method: :get %></li>
+            <% end %>
+          </ul>
+        <!-- </div> -->
+      </div>
+    </div>
+  </div>
+</header>
 
 <%= yield %>
 
+<footer>
+  <div class="container"><p>(C) 2016 YUKIHIRO UEDA</p></div>
+</footer>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+  $('.bs-component [data-toggle="popover"]').popover();
+  $('.bs-component [data-toggle="tooltip"]').tooltip();
+</script>
+
 </body>
 </html>
+
+

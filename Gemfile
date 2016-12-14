@@ -48,5 +48,6 @@ group :development do
   gem 'mechanize'
   gem 'kaminari'
   gem 'paperclip'
+  gem 'bootstrap_form'  
 end
 
