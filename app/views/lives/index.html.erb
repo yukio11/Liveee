@@ -1,51 +1,14 @@
-<h1>Searching Lives</h1>
-<div>
-  <%= form_tag('/lives/search', method: :get) do %>
-    <input class="search__query" name="keyword" placeholder="タイトルで検索" type="text" value=""><button class="btn-search" title="検索" type="submit"><i class="icon-search"></i></button></input>
-  <% end %>
+<div class="contents">
+  <div class="ranking">
+    <h1>Ranking</h1>
+  </div>
+  <div class="calender">
+    <h1>Calender</h1>
+  </div>
+  <div class="searching">
+    <h1>Searching Lives</h1>
+      <%= form_tag('/lives/search', method: :get) do %>
+        <input class="search__query" name="keyword" placeholder="タイトルで検索" type="text" value=""><button class="btn-search" title="検索" type="submit"><i class="icon-search"></i></button></input>
+      <% end %>
+  </div>
 </div>
-
-<h1>Listing Lives</h1>
-
-<%= render :partial => "live", :collection => @lives, locals: { live: @live} %>
-
-
-<!--
-<table>
-  <%= paginate(@lives) %>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Day</th>
-      <th>Starting time</th>
-      <th>Place</th>
-      <th>Price</th>
-      <th>Performer</th>
-      <th>Detail</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @lives.each do |life| %>
-      <tr>
-        <td><%= life.title %></td>
-        <td><%= life.day %></td>
-        <td><%= life.starting_time %></td>
-        <td><%= life.place %></td>
-        <td><%= life.price %></td>
-        <td><%= life.performer %></td>
-        <td><%= life.detail %></td>
-        <td><%= link_to 'Show', life %></td>
-        <td><%= link_to 'Edit', edit_life_path(life) %></td>
-        <td><%= link_to 'Destroy', life, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-
-  </tbody>
-</table>
-<%= paginate(@lives) %>
-<br>
-
-<%= link_to 'New Live', new_life_path %>
- -->
