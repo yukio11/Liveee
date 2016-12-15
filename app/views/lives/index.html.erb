@@ -6,6 +6,11 @@
 </div>
 
 <h1>Listing Lives</h1>
+
+<%= render :partial => "live", :collection => @lives, locals: { live: @live} %>
+
+
+<!--
 <table>
   <%= paginate(@lives) %>
   <thead>

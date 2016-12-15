@@ -10,6 +10,8 @@ class LivesController < ApplicationController
   # GET /lives/1.json
   def show
     @live = Live.find(params[:id])
+    @reviews = @live.reviews
+    @review = Review.new
   end
 
 

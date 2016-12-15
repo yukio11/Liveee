@@ -59,38 +59,48 @@
 
 <body>
 
-<div class="form-horizontal" role="form">
-  <div class="container">
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <%= devise_error_messages! %>
-    <div class="form-group">
-      <div class="field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true %>
+
+<body>
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="well bs-component">
+        <form class="form-horizontal">
+          <fieldset>
+            <legend>Sign Up</legend>
+            <div class="form-horizontal" role="form">
+              <div class="container">
+                <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                  <%= devise_error_messages! %>
+                    <div class="form-group">
+                      <div class="field">
+                        <%= f.label :email %><br />
+                        <%= f.email_field :email, autofocus: true %>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="field">
+                        <%= f.label :password %><br />
+                        <%= f.password_field :password, autocomplete: "off" %>
+                      </div>
+                    </div>
+                  <% if devise_mapping.rememberable? -%>
+                    <div class="field">
+                      <%= f.check_box :remember_me %>
+                      <%= f.label :remember_me %>
+                    </div>
+                  <% end -%>
+                  <div class="actions">
+                    <%= f.submit "Log in" %><br>
+                    <%= render "devise/shared/links" %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </fieldset>
+        </form>
       </div>
     </div>
-    <div class="form-group">
-      <div class="field">
-        <%= f.label :password %><br />
-        <%= f.password_field :password, autocomplete: "off" %>
-      </div>
-    </div>
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end -%>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-    <% end %>
-  </div>
-</div>
-
-<%= render "devise/shared/links" %>
-
+  <div class="col-lg-4 col-lg-offset-1">
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 

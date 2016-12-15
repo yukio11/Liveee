@@ -15,6 +15,6 @@ class ReviewsController < ApplicationController
 
   private
     def create_params
-      params.require(:review).permit(:rate, :review).merge(live_id: params[:life_id], user_id: current_user.id)
+      params.require(:review).permit(:rate, :review).merge(live_id: params[:life_id], user_id: current_user)
     end
 end

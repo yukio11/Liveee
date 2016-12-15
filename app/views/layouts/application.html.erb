@@ -83,7 +83,7 @@
               <div class="navbar-form navbar-left" role="search">
                 <div class="input-group">
                   <%= form_tag('/lives/search', method: :get) do %>
-                  <input class="form-control" name="keyword" placeholder="タイトルで検索" type="text" value=""><button class="form-control" title="Search" type="submit"><i class="icon-search"></i></button></input>
+                  <input class="form-control" name="keyword" placeholder="タイトルで検索" type="text" value=""><button class="form-control" title="Search" type="submit"><i class="form-control" ></i></button></input>
                   <% end %>
                 </div>
               </div>
@@ -109,7 +109,9 @@
 <%= yield %>
 
 <footer>
-  <div class="container"><p>(C) 2016 YUKIHIRO UEDA</p></div>
+  <div class="container">
+    <p>(C) 2016 YUKIHIRO UEDA</p>
+  </div>
 </footer>
 
 
