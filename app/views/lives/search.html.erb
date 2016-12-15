@@ -6,39 +6,7 @@
 </div>
 
 <h1>Searching Lives Result</h1>
-<table>
   <%= paginate(@search_lives) %>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Day</th>
-      <th>Starting time</th>
-      <th>Place</th>
-      <th>Price</th>
-      <th>Performer</th>
-      <th>Detail</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @search_lives.each do |life| %>
-
-      <tr>
-        <td><%= life.title %></td>
-        <td><%= life.day %></td>
-        <td><%= life.starting_time %></td>
-        <td><%= life.place %></td>
-        <td><%= life.price %></td>
-        <td><%= life.performer %></td>
-        <td><%= life.detail %></td>
-        <td><%= link_to 'Show', life %></td>
-        <td><%= link_to 'Edit', edit_life_path(life) %></td>
-        <td><%= link_to 'Destroy', life, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-
-  </tbody>
-</table>
+<%= render :partial => "live", :collection => @search_lives, locals: { live: @search_live} %>
   <%= paginate(@search_lives) %>
 <br>
