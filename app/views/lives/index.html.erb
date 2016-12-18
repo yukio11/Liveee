@@ -3,7 +3,7 @@
     <div class="col-xs-6">
       <div class="searching">
         <h1>Searching Lives</h1>
-        <%= form_tag('/lives/search_function', method: :get) do %>
+        <%= form_tag('/lives/search', method: :get) do %>
           <input class="search__query" name="keyword" placeholder="タイトルで検索" type="text" value="">
           <button class="btn-search" title="検索" type="submit">Search</button></input>
         <% end %>

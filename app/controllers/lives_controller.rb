@@ -11,7 +11,7 @@ class LivesController < ApplicationController
     @review = Review.new
   end
 
-  def search_function
+  def search
     @search_lives = Live.where('title LIKE(?)', "%#{params[:keyword]}%").page(params[:page]).per(10)
     # @search_lives = Live.search(:title_cont => '%#{params[:keyword]}%').result.page(params[:page]).per(10)
   end
