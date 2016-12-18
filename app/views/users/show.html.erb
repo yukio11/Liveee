@@ -6,14 +6,14 @@
 
   <div class="current_user-reviews">
     <h1>Reviews</h1>
-    <%= current_user.reviews.each do |review| %>
+    <% current_user.reviews.each do |review| %>
       <div class="panel panel-default">
         <div class="panel-heading">
           <h4><%= link_to review.live.title, life_path(review.live.id) %></h4>
           <p>評価:<%= review.rate %></p>
         </div>
         <div class="panel-body">
-          <p>レビュー:<%= review.review %></p>
+          <p>レビュー:<br><%= review.review %></p>
         </div>
       </div>
     <% end %>
