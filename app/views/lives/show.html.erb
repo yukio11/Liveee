@@ -1,5 +1,6 @@
-<%= render :partial => "live", locals: { live: @live} %>
-<%= render :partial => "reviews/new", locals: { live: @live, review: @review} %>
-<%= render :partial => 'reviews/review', :collection => @reviews, locals: {review: @review} %>
-<%= link_to 'Edit', edit_life_path(@live) %> |
-<%= link_to 'Back', lives_path %>
+  <%= render :partial => "live", locals: { live: @live} %>
+  <%= render :partial => "reviews/new", locals: { live: @live, review: @review} %>
+  <%= render :partial => 'reviews/review', :collection => @reviews, locals: {review: @review} %>
+  <%= link_to 'Edit', edit_life_path(@live) %> |
+  <%= link_to 'Back', lives_path %>
+

@@ -82,8 +82,8 @@
             <li>
               <div class="navbar-form navbar-left" role="search">
                 <div class="input-group">
-                  <%= form_tag('/lives/search', method: :get) do %>
-                  <input class="form-control" name="keyword" placeholder="タイトルで検索" type="text" value=""><button class="form-control" title="Search" type="submit"><i class="form-control" ></i></button></input>
+                  <%= form_tag('/lives/search_function', method: :get) do %>
+                  <input class="form-control" name="keyword" placeholder="タイトルで検索" type="text" value=""><button class="form-control" title="Search" type="submit">Search</button></input>
                   <% end %>
                 </div>
               </div>
@@ -106,7 +106,9 @@
   </div>
 </header>
 
-<%= yield %>
+<div class="container">
+  <%= yield %>
+</div>
 
 <footer>
   <div class="container">

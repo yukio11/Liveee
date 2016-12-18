@@ -1,35 +1,21 @@
-<h1>My Page</h1>
-<%= current_user.nickname %><span>さんのマイページ</span>
-<br><%= image_tag current_user.avatar %>
+<div class="my-page">
+  <div class="current_user-profile">
+    <h1><%= current_user.nickname %>さんのマイページ</h1>
+    <br><%= image_tag current_user.avatar %>
+  </div>
 
-
-
-<h1>Reviews</h1>
-
-  <table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Day</th>
-      <th>Performers</th>
-      <th>Rate</th>
-      <th>Review</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% current_user.reviews.each do |review| %>
-      <tr>
-        <td><%= review.live.title %></td>
-        <td><%= review.live.day %></td>
-        <td><%= review.live.performer %></td>
-        <td><%= review.rate %></td>
-        <td><%= review.review %></td>
-
-      </tr>
+  <div class="current_user-reviews">
+    <h1>Reviews</h1>
+    <%= current_user.reviews.each do |review| %>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4><%= link_to review.live.title, life_path(review.live.id) %></h4>
+          <p>評価:<%= review.rate %></p>
+        </div>
+        <div class="panel-body">
+          <p>レビュー:<%= review.review %></p>
+        </div>
+      </div>
     <% end %>
-
-  </tbody>
-</table>
-<br>
+  </div>
+</div>

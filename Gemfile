@@ -48,6 +48,9 @@ group :development do
   gem 'mechanize'
   gem 'kaminari'
   gem 'paperclip'
-  gem 'bootstrap_form'  
+  gem 'bootstrap_form'
+  gem 'rails-i18n'
+  gem 'ransack'
+
 end
 

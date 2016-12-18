@@ -1,0 +1,12 @@
+<h1>Searching Lives</h1>
+<div>
+  <%= form_tag('/lives/search_function', method: :get) do %>
+    <input class="search__query" name="keyword" placeholder="タイトルで検索" type="text" value=""><button class="btn-search" title="検索" type="submit">Search</button></input>
+  <% end %>
+</div>
+
+<h1>Searching Lives Result</h1>
+  <%= paginate(@search_lives) %>
+<%= render :partial => "live", :collection => @search_lives, locals: { live: @search_live} %>
+  <%= paginate(@search_lives) %>
+<br>
