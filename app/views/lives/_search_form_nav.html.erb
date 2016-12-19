@@ -1,5 +1,5 @@
-<div class="form-group">
+<%= search_form_for(Live.search, url: search_lives_path, html: { method: :get, class: 'form-inline', role: 'form' }) do |f| %>
   <%= f.label :キーワードで探す %>
   <%= f.text_field :title_or_performer_cont %>
   <%= f.submit %>
-</div>
+<% end %>

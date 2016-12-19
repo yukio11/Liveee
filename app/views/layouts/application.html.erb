@@ -73,9 +73,7 @@
             <li>
               <div class="navbar-form navbar-left" role="search">
                 <div class="input-group">
-                  <%= search_form_for(Live.search, url: search_lives_path, html: { method: :get, class: 'form-inline', role: 'form' }) do |f| %>
-                    <%= render '/lives/search_form_nav', f: f %>
-                  <% end %>
+                  <%= render '/lives/search_form_nav'%>
                 </div>
               </div>
             </li>
