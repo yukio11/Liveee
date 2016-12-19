@@ -1,7 +1,7 @@
-<div>
-  <%= search_form_for @q do |f| %>
-    <%= f.label :キーワード %>
-    <%= f.text_field :title_or_performer_cont %>
-    <%= f.submit %>
-  <% end %>
-</div>
+<%= search_form_for(Live.search, url: search_lives_path, html: { method: :get, class: 'form-inline', role: 'form' }) do |f| %>
+
+  <%= f.label :キーワードから探す %>
+  <%= f.text_field :title_or_performer_cont %>
+
+  <%= f.submit %>
+<% end %>

@@ -3,8 +3,7 @@ class LivesController < ApplicationController
 
   def index
     @q = Live.ransack(params[:q])
-    @lives = @q.result(distinct: true)
-    # @lives = Live.all.page(params[:page]).per(10)
+    @search_lives = @q.result(distinct: true)
   end
 
   def show
@@ -14,10 +13,15 @@ class LivesController < ApplicationController
   end
 
   def search
-    # @search_lives = Live.where('title LIKE(?)', "%#{params[:keyword]}%").page(params[:page]).per(10)
+    words = params[:q].delete(:title_or_performer_cont)
+    if words.present?
+      params[:q][:groupings] = []
+      words.split(/[ 　]/).each_with_index do |word, i|
+        params[:q][:groupings][i] = { title_or_performer_cont: word }
+      end
+    end
     @q = Live.ransack(params[:q])
     @search_lives = @q.result(distinct: true)
-    # @search_lives = Live.search(:title_cont => '%#{params[:keyword]}%').result.page(params[:page]).per(10)
   end
 
   def ranking

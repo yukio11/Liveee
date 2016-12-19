@@ -1,11 +1,5 @@
 <h1>Searching Lives</h1>
-<div>
-  <%= search_form_for @q do |f| %>
-    <%= f.label :title_cont %>
-    <%= f.text_field :title_cont %>
-    <%= f.submit %>
-  <% end %>
-</div>
+<%= render 'search_form'%>
 
 <h1>Searching Lives Result</h1>
 
