@@ -51,6 +51,8 @@ group :development do
   gem 'bootstrap_form'
   gem 'rails-i18n'
   gem 'ransack'
+  gem 'fullcalendar-rails'
+  gem 'momentjs-rails'
 
 end
 

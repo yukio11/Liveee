@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'calender/index'
+
   devise_for :users
   root 'lives#index'
   resources :users, only: :show
