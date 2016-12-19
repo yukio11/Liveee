@@ -1,7 +1,7 @@
 <div>
   <%= search_form_for @q do |f| %>
-    <%= f.label :公演名から探す %>
-    <%= f.text_field :title_cont %>
+    <%= f.label :キーワード %>
+    <%= f.text_field :title_or_performer_cont %>
     <%= f.submit %>
   <% end %>
 </div>
