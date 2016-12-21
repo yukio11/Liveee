@@ -14,10 +14,8 @@ class LivesController < ApplicationController
   end
 
   def search
-    # @search_lives = Live.where('title LIKE(?)', "%#{params[:keyword]}%").page(params[:page]).per(10)
     @q = Live.search(params[:q])
     @search_lives = @q.result(distinct: true)
-    # @search_lives = Live.search(:title_cont => '%#{params[:keyword]}%').result.page(params[:page]).per(10)
   end
 
   def ranking
