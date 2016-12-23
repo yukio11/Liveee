@@ -1,13 +1,13 @@
 <%= search_form_for(Live.search, url: search_lives_path, html: { method: :get, class: 'form-inline', role: 'form' }) do |f| %>
-
   <div class="form-group">
     <%= f.label :キーワードから探す %>
     <%= f.text_field :title_or_performer_cont %>
   </div>
+  <br>
   <div class="form-group">
-    <%= f.label :会場から探す %>
-   <!--  <%= f.sort_link(@q, :place) %> -->
+    <%= f.label :日付から探す %>
+    <%= f.date_select :day_gteq, include_blank: true %>〜
+    <%= f.date_select :day_lteq, include_blank: true %>
   </div>
-
   <%= f.submit %>
 <% end %>
