@@ -4,10 +4,17 @@
     <%= f.text_field :title_or_performer_cont %>
   </div>
   <br>
-  <div class="form-group">
+<!--   <div class="form-group">
     <%= f.label :日付から探す %>
-    <%= f.date_select :day_gteq, include_blank: true %>〜
-    <%= f.date_select :day_lteq, include_blank: true %>
+    <%= f.date_select :created_at_gteq, include_blank: false %>〜
+    <%= f.date_select :created_at_lteq, include_blank: false%>
+  </div> -->
+<!--   <div class="form-group">
+  <%= f.label :場所から探す %>
+  <%= f.select :place_eq, include_blank: false %>
   </div>
+ -->  <br>
+  <div class="form-group">
   <%= f.submit %>
+  </div>
 <% end %>

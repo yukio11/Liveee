@@ -1,8 +1,6 @@
 <h1>Searching Lives</h1>
 <%= render 'search_form'%>
-
 <h1>Searching Lives Result</h1>
-
+<div class="pagination"><%= paginate @search_lives %></div>
 <%= render :partial => "live", :collection => @search_lives, locals: { live: @search_live} %>
-
-<br>
+<div class="pagination"><%= paginate @search_lives %></div>

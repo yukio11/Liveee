@@ -11,6 +11,7 @@ class ReviewsController < ApplicationController
   def create
     Review.create(create_params)
     redirect_to controller: :lives, action: :index
+    flash[:notice] = "投稿完了しました！"
   end
 
   private

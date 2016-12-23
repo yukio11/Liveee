@@ -1,31 +1,29 @@
-<div class="contents">
-  <div class="row">
-    <div class="col-xs-6">
-      <div class="searching">
-        <h1>Searching Lives</h1>
-        <%= render 'search_form'%>
-      </div>
-      <div class="calender">
-        <h1>Calender</h1>
-        <div id="calendar"></div>
-      </div>
+<div class="row">
+  <div class="col-xs-6">
+    <div class="searching">
+      <h1>Searching Lives</h1>
+      <%= render 'search_form'%>
     </div>
-    <div class="col-xs-6">
-      <div class="ranking">
-        <h1>Ranking</h1>
-        <% @ranking.each.with_index(1) do |live, i| %>
-          <div class="panel panel-info">
-            <div class="panel-heading">
-              <h3 class="panel-title">
-                <p><strong><%= i %>位 </strong><%= link_to live.title, life_path(live) %></p>
-              </h3>
-            </div>
-            <div class="panel-body">
-              <strong>Performer:</strong><%= live.performer %>
-            </div>
+    <div class="calender">
+      <h1>Calender</h1>
+      <div id="calendar"></div>
+    </div>
+  </div>
+  <div class="col-xs-6">
+    <div class="ranking">
+      <h1>Ranking</h1>
+      <% @ranking.each.with_index(1) do |live, i| %>
+        <div class="panel panel-info">
+          <div class="panel-heading">
+            <h3 class="panel-title">
+              <p><strong><%= i %>位 </strong><%= link_to live.title, life_path(live) %></p>
+            </h3>
           </div>
-        <% end %>
-      </div>
+          <div class="panel-body">
+            <strong>Performer:</strong><%= live.performer %>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

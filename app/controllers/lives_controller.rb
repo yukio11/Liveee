@@ -8,11 +8,12 @@ class LivesController < ApplicationController
 
   def show
     @live = Live.find(params[:id])
-    @reviews = @live.reviews
+    @reviews = @live.reviews.page(params[:page]).per(5)
     @review = Review.new
   end
 
   def search
+
     words = params[:q].delete(:title_or_performer_cont)
     if words.present?
       params[:q][:groupings] = []
@@ -21,7 +22,7 @@ class LivesController < ApplicationController
       end
     end
     @q = Live.ransack(params[:q])
-    @search_lives = @q.result(distinct: true)
+    @search_lives = @q.result(distinct: true).page(params[:page]).per(5)
   end
 
   def ranking

@@ -27,7 +27,7 @@ class Scraping
 
     eles.each do |ele|
       if ele.search('#dayTitle').present?
-        day = '2016-' + ele.search('#dayTitle').inner_text
+        day = '2016-' + ele.search('#dayTitle').inner_text.gsub("月","-").gsub("日","").gsub(/\(.*?\)/,"")
       else
         day = Live.last.day
       end
