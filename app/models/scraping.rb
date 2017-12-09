@@ -39,7 +39,7 @@ class Scraping
       detail = ele.search('li .schedule_con, .lastChild')[3].inner_text
 
       live = Live.where(title: title, day: day, starting_time: starting_time, place: place, price: price, performer: performers_list, detail: detail).first_or_create
-
+      binding.pry
       performers = performers_list.gsub(/\r\n|\s/,"").gsub(/\[.*?\]/,"／").split("／").reject(&:blank?)
       performers.each do |name|
         performer = Performer.where(name: name).first_or_create

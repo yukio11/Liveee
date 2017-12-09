@@ -15,7 +15,7 @@ class LivesController < ApplicationController
 
   def search
     # @search_lives = Live.where('title LIKE(?)', "%#{params[:keyword]}%").page(params[:page]).per(10)
-    @q = Live.search(params[:q])
+    @q = Live.search(search_params)
     @search_lives = @q.result(distinct: true)
     # @search_lives = Live.search(:title_cont => '%#{params[:keyword]}%').result.page(params[:page]).per(10)
   end
@@ -24,4 +24,10 @@ class LivesController < ApplicationController
     ranking_ids = Review.group(:live_id).order('count_live_id DESC').limit(5).count(:live_id).keys
     @ranking = ranking_ids.map{ |id| Live.find(id)}
   end
+
+  private
+  def search_params
+    params.require(:q).permit(:title_cont)
+  end
+
 end

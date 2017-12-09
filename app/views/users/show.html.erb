@@ -6,7 +6,7 @@
 
   <div class="current_user-reviews">
     <h1>Reviews</h1>
-    <% current_user.reviews.each do |review| %>
+    <% @user_reviews.each do |review| %>
       <div class="panel panel-default">
         <div class="panel-heading">
           <h4><%= link_to review.live.title, life_path(review.live.id) %></h4>
